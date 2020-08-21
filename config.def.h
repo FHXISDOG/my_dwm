@@ -61,11 +61,12 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *rofi[] = {"rofi", "-show", "drun", "-modi", "run,drun", "-show-icons", "-theme", "fancy"};
 static const char *termcmd[]  = { "st", NULL };
 static const char *lock[] = {"i3lock", "-i", "/home/finger/Wallpaper/wallpaper.png"};
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = rofi} },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lock} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
